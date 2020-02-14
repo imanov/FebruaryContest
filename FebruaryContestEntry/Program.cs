@@ -24,6 +24,11 @@ namespace FebruaryContestEntry
             Console.ResetColor();
             Console.WriteLine();
 
+            Solution3();
+
+            Console.ResetColor();
+            Console.WriteLine();
+
             Console.WriteLine();
             Console.WriteLine("Yay, a colorful shape!");
             Console.ReadLine();
@@ -72,16 +77,40 @@ namespace FebruaryContestEntry
 
             Console.ForegroundColor = ConsoleColor.Yellow;
 
+            // Draw full rectangle
             for (int i = 0; i < rows; i++)
             {
                 Console.WriteLine(arr);
             }
 
+            // Draw borders
             Console.MoveBufferArea(0, bufferTop, cols, 1, 0, bufferTop + 1, block, ConsoleColor.Green, ConsoleColor.Black);
             Console.MoveBufferArea(0, bufferTop + rows - 1, cols, 1, 0, bufferTop + 2, block, ConsoleColor.Green, ConsoleColor.Black);
 
             Console.MoveBufferArea(0, bufferTop, 1, rows, 1, bufferTop, block, ConsoleColor.Green, ConsoleColor.Black);
             Console.MoveBufferArea(cols - 1, bufferTop, 1, rows, 1, bufferTop, block, ConsoleColor.Green, ConsoleColor.Black);
+        }
+
+        private static void Solution3()
+        {
+            Console.WriteLine();
+
+            var bufferTop = Console.CursorTop;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            
+            for (int i = 0; i < rows; i++)
+            {
+                Console.MoveBufferArea(0, bufferTop+i, cols, 1, 0, bufferTop + i + 1, block, ConsoleColor.Yellow, ConsoleColor.Black);
+            }
+
+            // Draw borders
+            Console.MoveBufferArea(0, bufferTop, cols, 1, 0, bufferTop + 1, block, ConsoleColor.Green, ConsoleColor.Black);
+            Console.MoveBufferArea(0, bufferTop + rows - 1, cols, 1, 0, bufferTop + 2, block, ConsoleColor.Green, ConsoleColor.Black);
+
+            Console.MoveBufferArea(0, bufferTop, 1, rows, 1, bufferTop, block, ConsoleColor.Green, ConsoleColor.Black);
+            Console.MoveBufferArea(cols - 1, bufferTop, 1, rows, 1, bufferTop, block, ConsoleColor.Green, ConsoleColor.Black);
+
         }
     }
 }
